@@ -13,6 +13,11 @@ app.get('/a/b/:name/:email/:place',function(req,res) {
     var email=req.params.email;
     var place=req.params.place;
     res.send("Hello "+name+" your email id is "+email+" wellcome to "+place+".");
+
+   /*
+    Request URL: http://localhost:3000/users/34/books/8989
+        req.params: { "userId": "34", "bookId": "8989" }
+        */
 });
 
 app.post('/x/y/z/:firstname/:lastname',function(req,res) {
@@ -22,5 +27,5 @@ app.post('/x/y/z/:firstname/:lastname',function(req,res) {
 });
 
 app.listen(3002,function () {
-    console.log("Server 3004 is started.");
+    console.log("Server 3002 is started.");
 });
