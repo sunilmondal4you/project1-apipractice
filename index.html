@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+    <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+
+    <script src="bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnhtml5rocks').click(function() {
+                $('#ResponseContent h2').html('Response Content');
+                $('#ResponseContent div').html('');
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.html5rocks.com/en/tutorials/file/xhr2/',
+                    success: function(response) {
+                        var article = $(response).find('article').first().html();
+                        $('#ResponseContent h2').html('Response Content - from HTML5Rocks');
+                        $('#ResponseContent div').html(article);
+                    }
+                }).fail(function() {
+                    alert("failed!");
+                });;
+            });
+            $('#btnnytimes').click(function() {
+                $('#ResponseContent h2').html('Response Content');
+                $('#ResponseContent div').html('');
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.nytimes.com/',
+                    success: function(response) {
+                        var article = $(response).find('article').first().html();
+                        $('#ResponseContent h2').html('Response Content - from NY Times');
+                        $('#ResponseContent div').html(article);
+                    }
+                }).fail(function() {
+                    alert("failed!");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="col-sm-12" style="margin-top: 50px">
+  <div class="col-sm-8 col-sm-offset-2">
+      <button id="btnhtml5rocks" class="btn btn-success">Fetch HTML5 Rocks</button>
+      <button id="btnnytimes" class="btn btn-warning">Fetch NY Times</button>
+      <br>
+      <div id="ResponseContent">
+          <h2>Response Content</h2>
+          <div></div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>
