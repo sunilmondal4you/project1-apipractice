@@ -14,6 +14,12 @@ app.post('/a',function(req,res) {
 
 app.post('/a/b', function(req,res) {
     res.send(req.body);
+
+  /*  select data in Header>>>>Key= Content-Type & value=application/json
+    and send data in row in json format like  {
+        "name":"sunil",
+            "sex":"male"
+    }*/
 });
 
 app.post('/a/b/c',function(req,res) {
